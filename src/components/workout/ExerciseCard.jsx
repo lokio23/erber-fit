@@ -71,7 +71,7 @@ export default function ExerciseCard({ exerciseIndex, exercise, onUpdateSet, onT
       {/* Actions row */}
       <div className="flex items-center gap-3 pt-2 border-t border-surface-lighter">
         <div className="flex gap-2">
-          {[60, 90, 120].map(sec => (
+          {[30, 60, 90, 120].map(sec => (
             <button
               key={sec}
               onClick={() => onStartTimer(sec)}
