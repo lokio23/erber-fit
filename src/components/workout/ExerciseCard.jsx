@@ -2,11 +2,14 @@ import { useState } from 'react'
 import SetRow from './SetRow'
 import FormTipAccordion from './FormTipAccordion'
 import MuscleViewModal from './MuscleViewModal'
+import ExerciseImageModal from './ExerciseImageModal'
+import ExerciseIllustration from '../exerciseIllustrations'
 import Card from '../common/Card'
 import { EXERCISE_MAP } from '../../data/exercises'
 
 export default function ExerciseCard({ exerciseIndex, exercise, onUpdateSet, onToggleSet, onStartTimer, progressionStatus }) {
   const [showMuscles, setShowMuscles] = useState(false)
+  const [showImage, setShowImage] = useState(false)
   const exerciseData = EXERCISE_MAP[exercise.exerciseId]
   const completedCount = exercise.sets.filter(s => s.completed).length
   const allDone = completedCount === exercise.sets.length
@@ -20,8 +23,15 @@ export default function ExerciseCard({ exerciseIndex, exercise, onUpdateSet, onT
   return (
     <Card accent={allDone} className={allDone ? 'opacity-80' : ''}>
       {/* Header */}
-      <div className="flex items-start justify-between mb-3">
-        <div>
+      <div className="flex items-start gap-3 mb-3">
+        {/* Exercise thumbnail */}
+        <button
+          onClick={() => setShowImage(true)}
+          className="flex-shrink-0 bg-surface-light rounded-lg p-1.5 border border-surface-lighter hover:border-accent/40 transition-colors"
+        >
+          <ExerciseIllustration exerciseId={exerciseData?.formCoachId} size="sm" />
+        </button>
+        <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <span className="text-accent font-bold text-sm">#{exerciseIndex + 1}</span>
             <h3 className="font-header text-lg tracking-wide text-text-primary leading-tight">
@@ -76,6 +86,7 @@ export default function ExerciseCard({ exerciseIndex, exercise, onUpdateSet, onT
             <FormTipAccordion
               formTips={exerciseData.formTips}
               avoidCues={exerciseData.avoidCues}
+              formCoachId={exerciseData.formCoachId}
             />
           )}
           <button
@@ -93,6 +104,14 @@ export default function ExerciseCard({ exerciseIndex, exercise, onUpdateSet, onT
           onClose={() => setShowMuscles(false)}
           primaryMuscles={exerciseData.primaryMuscles}
           secondaryMuscles={exerciseData.secondaryMuscles}
+        />
+      )}
+
+      {exerciseData && (
+        <ExerciseImageModal
+          isOpen={showImage}
+          onClose={() => setShowImage(false)}
+          exercise={exerciseData}
         />
       )}
     </Card>

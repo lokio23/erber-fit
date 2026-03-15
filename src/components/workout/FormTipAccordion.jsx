@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import ExerciseIllustration from '../exerciseIllustrations'
 
-export default function FormTipAccordion({ formTips, avoidCues }) {
+export default function FormTipAccordion({ formTips, avoidCues, formCoachId }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -15,7 +16,7 @@ export default function FormTipAccordion({ formTips, avoidCues }) {
         >
           <polyline points="9 18 15 12 9 6" />
         </svg>
-        Form Tips
+        Form Guide
       </button>
 
       <div
@@ -24,15 +25,29 @@ export default function FormTipAccordion({ formTips, avoidCues }) {
         }`}
       >
         <div className="overflow-hidden">
-          <div className="pt-2 pb-1 space-y-1.5">
-            {formTips.map((tip, i) => (
-              <div key={i} className="flex items-start gap-2 text-xs">
-                <span className="text-accent font-bold mt-0.5">{i + 1}.</span>
-                <span className="text-text-primary">{tip}</span>
+          <div className="pt-2 pb-1 space-y-3">
+            {/* Exercise illustration */}
+            {formCoachId && (
+              <div className="flex justify-center py-1">
+                <div className="bg-surface-light rounded-lg p-2 border border-surface-lighter">
+                  <ExerciseIllustration exerciseId={formCoachId} size="md" />
+                </div>
               </div>
-            ))}
+            )}
+
+            {/* Form tips */}
+            <div className="space-y-1.5">
+              {formTips.map((tip, i) => (
+                <div key={i} className="flex items-start gap-2 text-xs">
+                  <span className="text-accent font-bold mt-0.5">{i + 1}.</span>
+                  <span className="text-text-primary">{tip}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Avoid cues */}
             {avoidCues.length > 0 && (
-              <div className="mt-2 pt-2 border-t border-surface-lighter">
+              <div className="pt-2 border-t border-surface-lighter">
                 <p className="text-[10px] uppercase tracking-wider text-danger font-bold mb-1">Avoid</p>
                 {avoidCues.map((cue, i) => (
                   <div key={i} className="flex items-start gap-2 text-xs">
