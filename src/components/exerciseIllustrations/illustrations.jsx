@@ -885,6 +885,141 @@ export function SeatedCalfRaises() {
   )
 }
 
+export function CableFlyes() {
+  return (
+    <g>
+      {/* Cable machine left post */}
+      <line x1="6" y1="6" x2="6" y2="52" {...E} />
+      {/* Cable machine right post */}
+      <line x1="58" y1="6" x2="58" y2="52" {...E} />
+      {/* Left cable */}
+      <line x1="6" y1="12" x2="24" y2="30" style={{stroke: '#3a3a3a', strokeWidth: 1, strokeDasharray: '2 2'}} />
+      {/* Right cable */}
+      <line x1="58" y1="12" x2="40" y2="30" style={{stroke: '#3a3a3a', strokeWidth: 1, strokeDasharray: '2 2'}} />
+      {/* Figure standing, arms out */}
+      <circle cx="32" cy="14" r="4" {...S} />
+      <line x1="32" y1="18" x2="32" y2="38" {...S} />
+      {/* Arms bringing cables together */}
+      <line x1="32" y1="24" x2="24" y2="30" {...S} />
+      <line x1="32" y1="24" x2="40" y2="30" {...S} />
+      {/* Hands meeting in front of chest */}
+      <circle cx="28" cy="32" r="1" fill="#39FF14" />
+      <circle cx="36" cy="32" r="1" fill="#39FF14" />
+      {/* Arrow showing squeeze motion */}
+      <line x1="24" y1="32" x2="28" y2="32" {...S} />
+      <line x1="40" y1="32" x2="36" y2="32" {...S} />
+      {/* Legs */}
+      <line x1="32" y1="38" x2="26" y2="52" {...S} />
+      <line x1="32" y1="38" x2="38" y2="52" {...S} />
+      {/* Floor */}
+      <line x1="4" y1="52" x2="60" y2="52" {...E} />
+    </g>
+  )
+}
+
+export function DbShrugs() {
+  return (
+    <g>
+      {/* Figure standing */}
+      <circle cx="32" cy="10" r="4" {...S} />
+      <line x1="32" y1="14" x2="32" y2="34" {...S} />
+      {/* Shoulders raised — up arrow */}
+      <line x1="24" y1="20" x2="24" y2="12" {...S} />
+      <line x1="22" y1="15" x2="24" y2="12" {...S} />
+      <line x1="26" y1="15" x2="24" y2="12" {...S} />
+      <line x1="40" y1="20" x2="40" y2="12" {...S} />
+      <line x1="38" y1="15" x2="40" y2="12" {...S} />
+      <line x1="42" y1="15" x2="40" y2="12" {...S} />
+      {/* Arms holding dumbbells at sides */}
+      <line x1="32" y1="18" x2="22" y2="32" {...S} />
+      <line x1="32" y1="18" x2="42" y2="32" {...S} />
+      {/* Dumbbells */}
+      <rect x="18" y="30" width="8" height="4" rx="1" {...Ed} />
+      <rect x="38" y="30" width="8" height="4" rx="1" {...Ed} />
+      {/* Legs */}
+      <line x1="32" y1="34" x2="26" y2="52" {...S} />
+      <line x1="32" y1="34" x2="38" y2="52" {...S} />
+      {/* Floor */}
+      <line x1="14" y1="52" x2="50" y2="52" {...E} />
+    </g>
+  )
+}
+
+export function DeadBugs() {
+  return (
+    <g>
+      {/* Figure lying on back */}
+      <circle cx="14" cy="38" r="4" {...S} />
+      <line x1="18" y1="38" x2="48" y2="38" {...S} />
+      {/* Left arm reaching up */}
+      <line x1="24" y1="38" x2="24" y2="20" {...S} />
+      {/* Right arm reaching up */}
+      <line x1="34" y1="38" x2="34" y2="22" {...S} />
+      {/* Left leg extended out (opposite to arm) */}
+      <line x1="48" y1="38" x2="56" y2="28" {...S} />
+      {/* Right leg bent up at 90° */}
+      <line x1="48" y1="38" x2="52" y2="26" {...S} />
+      <line x1="52" y1="26" x2="48" y2="20" {...S} />
+      {/* Floor / mat */}
+      <line x1="6" y1="42" x2="58" y2="42" {...E} />
+      {/* Motion arrows */}
+      <line x1="56" y1="28" x2="56" y2="36" {...S} />
+      <line x1="54" y1="33" x2="56" y2="36" {...S} />
+      <line x1="58" y1="33" x2="56" y2="36" {...S} />
+    </g>
+  )
+}
+
+export function ReverseLunges() {
+  return (
+    <g>
+      {/* Figure in lunge position */}
+      <circle cx="28" cy="8" r="4" {...S} />
+      <line x1="28" y1="12" x2="28" y2="28" {...S} />
+      {/* Arms at sides */}
+      <line x1="28" y1="18" x2="22" y2="28" {...S} />
+      <line x1="28" y1="18" x2="34" y2="28" {...S} />
+      {/* Front leg bent at 90° */}
+      <line x1="28" y1="28" x2="22" y2="40" {...S} />
+      <line x1="22" y1="40" x2="22" y2="52" {...S} />
+      {/* Back leg stepping backward */}
+      <line x1="28" y1="28" x2="42" y2="42" {...S} />
+      <line x1="42" y1="42" x2="44" y2="50" {...S} />
+      {/* Back arrow showing reverse step */}
+      <line x1="40" y1="52" x2="50" y2="52" {...S} />
+      <line x1="47" y1="50" x2="50" y2="52" {...S} />
+      <line x1="47" y1="54" x2="50" y2="52" {...S} />
+      {/* Floor */}
+      <line x1="10" y1="52" x2="56" y2="52" {...E} />
+    </g>
+  )
+}
+
+export function BicycleCrunches() {
+  return (
+    <g>
+      {/* Figure lying on back doing bicycle crunch */}
+      <circle cx="16" cy="32" r="4" {...S} />
+      {/* Torso — rotated/crunched */}
+      <line x1="20" y1="32" x2="34" y2="36" {...S} />
+      {/* Hands behind head */}
+      <line x1="18" y1="30" x2="12" y2="26" {...S} />
+      <line x1="18" y1="34" x2="14" y2="30" {...S} />
+      {/* Left leg — bent knee coming in (cycling motion) */}
+      <line x1="34" y1="36" x2="40" y2="28" {...S} />
+      <line x1="40" y1="28" x2="36" y2="22" {...S} />
+      {/* Right leg — extended out */}
+      <line x1="34" y1="36" x2="52" y2="30" {...S} />
+      {/* Rotation arrow */}
+      <path d="M22,26 Q26,22 30,24" {...S} />
+      <line x1="28" y1="22" x2="30" y2="24" {...S} />
+      <line x1="30" y1="22" x2="30" y2="24" {...S} />
+      {/* Floor / mat */}
+      <line x1="6" y1="42" x2="58" y2="42" {...E} />
+    </g>
+  )
+}
+
 // Fallback illustration (generic dumbbell)
 export function FallbackIllustration() {
   return (

@@ -12,12 +12,13 @@ export const DAYS = [
     exerciseIds: [
       'incline-db-press',
       'flat-db-press',
+      'cable-flyes',
       'seated-db-shoulder-press',
       'db-lateral-raises',
       'cable-lateral-raises',
       'rope-tricep-pushdowns',
       'overhead-tricep-extensions',
-      'cable-woodchops'
+      'db-shrugs'
     ]
   },
   {
@@ -38,7 +39,8 @@ export const DAYS = [
       'standing-calf-raises',
       'seated-calf-raises',
       'hanging-leg-raises',
-      'reverse-crunches'
+      'reverse-crunches',
+      'dead-bugs'
     ]
   },
   {
@@ -59,7 +61,8 @@ export const DAYS = [
       'face-pulls',
       'hammer-curls',
       'incline-db-curls',
-      'pallof-press'
+      'pallof-press',
+      'cable-crunches'
     ]
   },
   {
@@ -74,13 +77,14 @@ export const DAYS = [
     ],
     exerciseIds: [
       'leg-press-quad',
-      'walking-lunges',
+      'reverse-lunges',
       'leg-extensions',
       'hip-thrusts-d4',
       'standing-calf-raises-d4',
       'seated-calf-raises-d4',
       'weighted-decline-crunches',
-      'ab-wheel-rollouts'
+      'cable-woodchops',
+      'bicycle-crunches'
     ]
   }
 ]

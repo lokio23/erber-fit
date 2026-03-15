@@ -136,25 +136,46 @@ export const EXERCISES = [
     formCoachId: 'overhead-tricep-extensions'
   },
   {
-    id: 'cable-woodchops',
-    name: 'Cable Woodchops (High-to-Low)',
+    id: 'cable-flyes',
+    name: 'Cable Flyes',
     sets: 3,
     minReps: 12,
     maxReps: 15,
     dayIndices: [0],
-    primaryMuscles: ['obliques'],
-    secondaryMuscles: ['abs'],
+    primaryMuscles: ['chest'],
+    secondaryMuscles: ['front-delts'],
     formTips: [
-      'Start with cable at highest setting',
-      'Rotate through torso, not arms',
-      'Keep arms extended throughout',
-      'Control the return — don\'t let cable snap back'
+      'Cables set at mid-height',
+      'Slight bend in elbows throughout',
+      'Squeeze chest hard at the center',
+      'Slow 2–3 second stretch on the way back'
     ],
     avoidCues: [
-      'Rounding the lower back',
-      'Using momentum instead of core rotation'
+      'Straightening arms (elbow lockout)',
+      'Using too heavy a weight and turning it into a press'
     ],
-    formCoachId: 'cable-woodchops'
+    formCoachId: 'cable-flyes'
+  },
+  {
+    id: 'db-shrugs',
+    name: 'Dumbbell Shrugs',
+    sets: 3,
+    minReps: 12,
+    maxReps: 15,
+    dayIndices: [0],
+    primaryMuscles: ['traps-rhomboids'],
+    secondaryMuscles: [],
+    formTips: [
+      'Pull shoulders straight up toward ears',
+      'Hold at the top for 1–2 seconds',
+      'Control the descent — don\'t drop shoulders',
+      'Keep arms straight, no elbow bend'
+    ],
+    avoidCues: [
+      'Rolling shoulders (just go straight up and down)',
+      'Using momentum or bouncing'
+    ],
+    formCoachId: 'db-shrugs'
   },
 
   // ═══════════════════════════════════════
@@ -312,6 +333,27 @@ export const EXERCISES = [
     ],
     formCoachId: 'reverse-crunches'
   },
+  {
+    id: 'dead-bugs',
+    name: 'Dead Bugs',
+    sets: 3,
+    minReps: 10,
+    maxReps: 10,
+    dayIndices: [1],
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    formTips: [
+      'Press lower back FLAT into the floor — no gap',
+      'Extend opposite arm and leg simultaneously',
+      'Breathe out as you extend, in as you return',
+      'Move slowly — 3 seconds out, 3 seconds back'
+    ],
+    avoidCues: [
+      'Lower back arching off the floor',
+      'Rushing through reps'
+    ],
+    formCoachId: 'dead-bugs'
+  },
 
   // ═══════════════════════════════════════
   // DAY 2 — UPPER PULL (Back / Rear Delts / Biceps)
@@ -467,6 +509,27 @@ export const EXERCISES = [
     ],
     formCoachId: 'pallof-press'
   },
+  {
+    id: 'cable-crunches',
+    name: 'Cable Crunches',
+    sets: 3,
+    minReps: 12,
+    maxReps: 15,
+    dayIndices: [2],
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    formTips: [
+      'Kneel facing cable machine',
+      'Hold rope behind head',
+      'Curl spine down — crunch ribs toward hips',
+      'Pause and squeeze at bottom'
+    ],
+    avoidCues: [
+      'Hinging at hips instead of curling spine',
+      'Using arm strength to pull the rope'
+    ],
+    formCoachId: 'cable-crunches'
+  },
 
   // ═══════════════════════════════════════
   // DAY 3 — LOWER QUAD (Quads / Glutes / Calves)
@@ -493,8 +556,8 @@ export const EXERCISES = [
     formCoachId: 'leg-press'
   },
   {
-    id: 'walking-lunges',
-    name: 'Walking Lunges',
+    id: 'reverse-lunges',
+    name: 'Reverse Lunges (DB)',
     sets: 3,
     minReps: 10,
     maxReps: 10,
@@ -502,16 +565,17 @@ export const EXERCISES = [
     primaryMuscles: ['quads', 'glutes'],
     secondaryMuscles: ['hamstrings'],
     formTips: [
-      'Long stride for glutes, short stride for quads',
-      'Keep torso upright',
-      'Front knee tracks over toes',
-      'Push through front heel to stand'
+      'Step BACKWARD — not forward (much less knee stress)',
+      'Front knee stays over ankle',
+      'Push through front heel to stand',
+      'Keep torso upright throughout'
     ],
     avoidCues: [
       'Knee caving inward',
-      'Leaning forward excessively'
+      'Leaning forward excessively',
+      'Stepping too far back (losing balance)'
     ],
-    formCoachId: 'walking-lunges'
+    formCoachId: 'reverse-lunges'
   },
   {
     id: 'leg-extensions',
@@ -523,14 +587,15 @@ export const EXERCISES = [
     primaryMuscles: ['quads'],
     secondaryMuscles: [],
     formTips: [
-      'Squeeze quads hard at the top',
+      'Limit ROM: 90° to 30° only (stop before full extension)',
+      'Squeeze quads hard at the top of your range',
       'Slow 2–3 second lowering',
-      'Full range of motion',
-      'Lean slightly back for more stretch'
+      'Lean slightly back for more quad stretch'
     ],
     avoidCues: [
+      'Extending fully / locking the knee (STOP 15° before lockout)',
       'Swinging the weight up',
-      'Hyperextending the knee at the top'
+      'Using heavy weight with limited ROM'
     ],
     formCoachId: 'leg-extensions'
   },
@@ -615,23 +680,46 @@ export const EXERCISES = [
     formCoachId: 'weighted-decline-crunches'
   },
   {
-    id: 'ab-wheel-rollouts',
-    name: 'Ab Wheel Rollouts',
+    id: 'cable-woodchops',
+    name: 'Cable Woodchops (High-to-Low)',
     sets: 3,
-    minReps: 10,
-    maxReps: 10,
+    minReps: 12,
+    maxReps: 15,
     dayIndices: [3],
-    primaryMuscles: ['abs'],
-    secondaryMuscles: [],
+    primaryMuscles: ['obliques'],
+    secondaryMuscles: ['abs'],
     formTips: [
-      'Keep core tight',
-      'Controlled extension',
-      'Don\'t let hips drop'
+      'Start with cable at highest setting',
+      'Rotate through torso, not arms',
+      'Keep arms extended throughout',
+      'Control the return — don\'t let cable snap back'
     ],
     avoidCues: [
-      'Letting hips drop'
+      'Rounding the lower back',
+      'Using momentum instead of core rotation'
     ],
-    formCoachId: 'ab-wheel-rollouts'
+    formCoachId: 'cable-woodchops'
+  },
+  {
+    id: 'bicycle-crunches',
+    name: 'Bicycle Crunches',
+    sets: 3,
+    minReps: 15,
+    maxReps: 15,
+    dayIndices: [3],
+    primaryMuscles: ['obliques', 'abs'],
+    secondaryMuscles: [],
+    formTips: [
+      'Opposite elbow to knee — full rotation',
+      'Extend the non-working leg fully',
+      'Slow and controlled — no rushing',
+      'Keep lower back pressed into floor'
+    ],
+    avoidCues: [
+      'Pulling on your neck',
+      'Speed-pedaling with no control'
+    ],
+    formCoachId: 'bicycle-crunches'
   }
 ]
 
