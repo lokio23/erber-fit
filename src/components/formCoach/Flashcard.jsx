@@ -35,7 +35,7 @@ export default function Flashcard({ exercise, isFlipped, onFlip }) {
         <div className="absolute inset-0 backface-hidden rotate-y-180 bg-surface rounded-xl border border-accent/30 p-6 overflow-y-auto">
           <h4 className="font-header text-base tracking-wide text-accent mb-3">FORM TIPS</h4>
           <div className="space-y-2 mb-4">
-            {exercise.formTips.slice(0, 3).map((tip, i) => (
+            {exercise.formTips.map((tip, i) => (
               <div key={i} className="flex items-start gap-2 text-sm">
                 <span className="text-accent font-bold">{i + 1}.</span>
                 <span className="text-text-primary">{tip}</span>

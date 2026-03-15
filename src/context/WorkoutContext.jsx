@@ -1,8 +1,11 @@
-import { createContext, useContext, useReducer, useCallback } from 'react'
+import { createContext, useContext, useReducer, useCallback, useEffect } from 'react'
 import { DAYS } from '../data/days'
 import { EXERCISE_MAP } from '../data/exercises'
+import { getItem, setItem, removeItem } from '../utils/storage'
 
 const WorkoutContext = createContext()
+
+const STORAGE_KEY = 'activeWorkout'
 
 const initialState = {
   isActive: false,
@@ -79,7 +82,19 @@ function workoutReducer(state, action) {
 }
 
 export function WorkoutProvider({ children }) {
-  const [workoutState, dispatch] = useReducer(workoutReducer, initialState)
+  const [workoutState, dispatch] = useReducer(workoutReducer, initialState, () => {
+    const saved = getItem(STORAGE_KEY, null)
+    return saved && saved.isActive ? saved : initialState
+  })
+
+  // Persist active workout on every state change
+  useEffect(() => {
+    if (workoutState.isActive) {
+      setItem(STORAGE_KEY, workoutState)
+    } else {
+      removeItem(STORAGE_KEY)
+    }
+  }, [workoutState])
 
   const startWorkout = useCallback((dayIndex, prefillWeights = {}) => {
     dispatch({ type: 'START_WORKOUT', payload: { dayIndex, prefillWeights } })

@@ -4,15 +4,20 @@ import Card from '../common/Card'
 const DAY_LABELS = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
 
 export default function StreakCalendar() {
-  const { currentStreak, last7Days } = useStreak()
+  const { thisWeekCount, weekStreak, last7Days } = useStreak()
 
   return (
     <Card>
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-header text-lg tracking-wide text-text-secondary">STREAK</h3>
-        {currentStreak > 0 && (
-          <span className="text-accent font-bold text-sm">{currentStreak} day{currentStreak !== 1 ? 's' : ''}</span>
-        )}
+        <h3 className="font-header text-lg tracking-wide text-text-secondary">THIS WEEK</h3>
+        <div className="flex items-center gap-2">
+          <span className="text-accent font-bold text-sm">{thisWeekCount}/4</span>
+          {weekStreak > 0 && (
+            <span className="text-[9px] text-text-secondary bg-surface-lighter px-1.5 py-0.5 rounded-full">
+              {weekStreak}w streak
+            </span>
+          )}
+        </div>
       </div>
       <div className="flex justify-between items-center gap-1">
         {last7Days.map((day, i) => {

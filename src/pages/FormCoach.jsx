@@ -24,23 +24,21 @@ export default function FormCoach() {
 
   const advance = useCallback(() => {
     setIsFlipped(false)
-    // If we just removed the last item, reset index
     if (currentIndex >= reviewQueue.length - 1) {
       setCurrentIndex(0)
     }
-    // Otherwise stay at same index (next item slides in)
   }, [currentIndex, reviewQueue.length])
 
   const handleKnow = useCallback(() => {
     if (currentExercise) {
-      markKnown(currentExercise.id)
+      markKnown(currentExercise)
       advance()
     }
   }, [currentExercise, markKnown, advance])
 
   const handleReview = useCallback(() => {
     if (currentExercise) {
-      markReview(currentExercise.id)
+      markReview(currentExercise)
       advance()
     }
   }, [currentExercise, markReview, advance])
@@ -53,7 +51,6 @@ export default function FormCoach() {
     }
   }, [resetProgress])
 
-  // All mastered state
   if (reviewQueue.length === 0) {
     return (
       <div>

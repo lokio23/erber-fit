@@ -17,6 +17,7 @@ export default function App() {
         <Route path="/progress" element={<ProgressTracker />} />
         <Route path="/library" element={<ExerciseLibrary />} />
         <Route path="/form-coach" element={<FormCoach />} />
+        <Route path="*" element={<Dashboard />} />
       </Route>
     </Routes>
   )

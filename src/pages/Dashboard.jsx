@@ -2,6 +2,7 @@ import QuickStartButton from '../components/dashboard/QuickStartButton'
 import TodayWorkoutCard from '../components/dashboard/TodayWorkoutCard'
 import LastWorkoutSummary from '../components/dashboard/LastWorkoutSummary'
 import StreakCalendar from '../components/dashboard/StreakCalendar'
+import DataManager from '../components/common/DataManager'
 
 export default function Dashboard() {
   return (
@@ -12,6 +13,9 @@ export default function Dashboard() {
         <StreakCalendar />
         <LastWorkoutSummary />
         <TodayWorkoutCard />
+      </div>
+      <div className="mt-6">
+        <DataManager />
       </div>
     </div>
   )

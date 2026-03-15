@@ -5,10 +5,18 @@ import { DAYS } from '../data/days'
 const AppContext = createContext()
 
 export function AppProvider({ children }) {
-  const [currentCycleDay, setCurrentCycleDay] = useLocalStorage('currentCycleDay', 0)
+  const [rawCycleDay, setCurrentCycleDay] = useLocalStorage('currentCycleDay', 0)
+
+  // Validate: clamp to 0-3 range
+  const currentCycleDay = typeof rawCycleDay === 'number' && rawCycleDay >= 0 && rawCycleDay < 4
+    ? rawCycleDay
+    : 0
 
   const advanceCycleDay = useCallback(() => {
-    setCurrentCycleDay(prev => (prev + 1) % 4)
+    setCurrentCycleDay(prev => {
+      const valid = typeof prev === 'number' && prev >= 0 && prev < 4 ? prev : 0
+      return (valid + 1) % 4
+    })
   }, [setCurrentCycleDay])
 
   const currentDay = DAYS[currentCycleDay]

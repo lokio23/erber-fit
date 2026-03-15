@@ -5,32 +5,35 @@ import { getUniqueExercises, UNIQUE_EXERCISE_COUNT } from '../utils/exerciseLook
 export function useFormCoach() {
   const [progress, setProgress] = useLocalStorage('formCoachProgress', {})
 
-  const markKnown = useCallback((exerciseId) => {
+  const markKnown = useCallback((exercise) => {
+    const key = exercise.formCoachId || exercise.id
     setProgress(prev => ({
       ...prev,
-      [exerciseId]: {
-        ...prev[exerciseId],
+      [key]: {
+        ...prev[key],
         known: true,
-        reviewCount: (prev[exerciseId]?.reviewCount || 0) + 1,
+        reviewCount: (prev[key]?.reviewCount || 0) + 1,
         lastReviewed: new Date().toISOString().slice(0, 10)
       }
     }))
   }, [setProgress])
 
-  const markReview = useCallback((exerciseId) => {
+  const markReview = useCallback((exercise) => {
+    const key = exercise.formCoachId || exercise.id
     setProgress(prev => ({
       ...prev,
-      [exerciseId]: {
-        ...prev[exerciseId],
+      [key]: {
+        ...prev[key],
         known: false,
-        reviewCount: (prev[exerciseId]?.reviewCount || 0) + 1,
+        reviewCount: (prev[key]?.reviewCount || 0) + 1,
         lastReviewed: new Date().toISOString().slice(0, 10)
       }
     }))
   }, [setProgress])
 
   const masteryCount = useMemo(() => {
-    return Object.values(progress).filter(p => p.known).length
+    const unique = getUniqueExercises()
+    return unique.filter(ex => progress[ex.formCoachId || ex.id]?.known).length
   }, [progress])
 
   const masteryPercent = useMemo(() => {
@@ -40,13 +43,15 @@ export function useFormCoach() {
   const reviewQueue = useMemo(() => {
     const unique = getUniqueExercises()
     return unique
-      .filter(ex => !progress[ex.id]?.known)
+      .filter(ex => !progress[ex.formCoachId || ex.id]?.known)
       .sort((a, b) => {
-        const aCount = progress[a.id]?.reviewCount ?? 0
-        const bCount = progress[b.id]?.reviewCount ?? 0
+        const aKey = a.formCoachId || a.id
+        const bKey = b.formCoachId || b.id
+        const aCount = progress[aKey]?.reviewCount ?? 0
+        const bCount = progress[bKey]?.reviewCount ?? 0
         if (aCount !== bCount) return aCount - bCount
-        const aDate = progress[a.id]?.lastReviewed ?? '1970-01-01'
-        const bDate = progress[b.id]?.lastReviewed ?? '1970-01-01'
+        const aDate = progress[aKey]?.lastReviewed ?? '1970-01-01'
+        const bDate = progress[bKey]?.lastReviewed ?? '1970-01-01'
         return aDate.localeCompare(bDate)
       })
   }, [progress])

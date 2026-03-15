@@ -1,11 +1,19 @@
+import { useEffect } from 'react'
 import Modal from '../common/Modal'
 import Button from '../common/Button'
 import Badge from '../common/Badge'
 import { calcSessionTotalVolume } from '../../utils/volumeCalc'
 import { formatDuration } from '../../utils/dateUtils'
 import { EXERCISE_MAP } from '../../data/exercises'
+import { fireConfetti } from '../../utils/confetti'
 
 export default function WorkoutCompleteModal({ isOpen, onClose, session, newPRs = [], onSave }) {
+  useEffect(() => {
+    if (isOpen && newPRs.length > 0) {
+      fireConfetti()
+    }
+  }, [isOpen, newPRs.length])
+
   if (!session) return null
 
   const totalSets = session.exercises.reduce(
@@ -45,7 +53,7 @@ export default function WorkoutCompleteModal({ isOpen, onClose, session, newPRs 
                     <Badge variant="accent" label={pr.type === 'weight' ? 'MAX WEIGHT' : 'MAX VOLUME'} />
                     <span className="text-sm text-text-primary">{exName}</span>
                     <span className="text-sm text-accent font-bold ml-auto">
-                      {pr.value}{pr.type === 'weight' ? ' lbs' : ' lbs'}
+                      {pr.type === 'weight' ? `${pr.value} lbs` : `${pr.value.toLocaleString()} vol`}
                     </span>
                   </div>
                 )

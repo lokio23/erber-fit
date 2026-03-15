@@ -1,23 +1,5 @@
-import { useRestTimer } from '../../hooks/useRestTimer'
-
-export default function RestTimer() {
-  const { timeRemaining, isRunning, startTimer, stopTimer, progress } = useRestTimer()
-
-  if (!isRunning && timeRemaining === 0) {
-    return (
-      <div className="flex gap-2">
-        {[60, 90, 120].map(sec => (
-          <button
-            key={sec}
-            onClick={() => startTimer(sec)}
-            className="px-2.5 py-1 text-xs rounded bg-surface-lighter text-text-secondary hover:text-text-primary transition-colors"
-          >
-            {sec}s
-          </button>
-        ))}
-      </div>
-    )
-  }
+export default function RestTimer({ timer }) {
+  const { timeRemaining, stopTimer, progress } = timer
 
   const radius = 28
   const circumference = 2 * Math.PI * radius
