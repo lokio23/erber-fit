@@ -27,6 +27,10 @@ import {
   WideGripLatPulldown,
   StraightArmPulldown,
   AbWheelRollouts,
+  CableWoodchops,
+  ReverseCrunches,
+  PallofPress,
+  WeightedDeclineCrunches,
   FallbackIllustration
 } from './illustrations'
 
@@ -58,7 +62,11 @@ const ILLUSTRATION_MAP = {
   'rear-delt-fly': RearDeltFly,
   'wide-grip-lat-pulldown': WideGripLatPulldown,
   'straight-arm-pulldown': StraightArmPulldown,
-  'ab-wheel-rollouts': AbWheelRollouts
+  'ab-wheel-rollouts': AbWheelRollouts,
+  'cable-woodchops': CableWoodchops,
+  'reverse-crunches': ReverseCrunches,
+  'pallof-press': PallofPress,
+  'weighted-decline-crunches': WeightedDeclineCrunches
 }
 
 const SIZES = {

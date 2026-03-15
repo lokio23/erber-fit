@@ -679,6 +679,116 @@ export function AbWheelRollouts() {
   )
 }
 
+// === AB & CORE EXERCISES ===
+
+export function CableWoodchops() {
+  return (
+    <g>
+      {/* Cable machine post */}
+      <line x1="8" y1="4" x2="8" y2="56" {...E} />
+      <rect x="4" y="4" width="8" height="4" rx="1" {...E} />
+      {/* Cable */}
+      <line x1="12" y1="8" x2="30" y2="22" style={{stroke: '#3a3a3a', strokeWidth: 1, strokeDasharray: '2 2'}} />
+      {/* Figure standing */}
+      <circle cx="36" cy="14" r="4" {...S} />
+      <line x1="36" y1="18" x2="36" y2="40" {...S} />
+      {/* Arms pulling cable across body — high to low */}
+      <line x1="36" y1="24" x2="30" y2="22" {...S} />
+      <line x1="36" y1="24" x2="48" y2="38" {...S} />
+      {/* Handle */}
+      <rect x="46" y="36" width="5" height="5" rx="1" {...Ed} />
+      {/* Legs wide stance */}
+      <line x1="36" y1="40" x2="28" y2="56" {...S} />
+      <line x1="36" y1="40" x2="44" y2="56" {...S} />
+      {/* Feet */}
+      <line x1="28" y1="56" x2="24" y2="56" {...S} />
+      <line x1="44" y1="56" x2="48" y2="56" {...S} />
+      {/* Rotation arrow */}
+      <path d="M44,28 Q52,32 48,38" fill="none" {...S} />
+    </g>
+  )
+}
+
+export function ReverseCrunches() {
+  return (
+    <g>
+      {/* Bench */}
+      <rect x="8" y="34" width="48" height="3" rx="1" {...E} />
+      <line x1="12" y1="37" x2="12" y2="52" {...E} />
+      <line x1="52" y1="37" x2="52" y2="52" {...E} />
+      {/* Figure lying flat — upper body */}
+      <circle cx="46" cy="28" r="4" {...S} />
+      <line x1="44" y1="30" x2="28" y2="34" {...S} />
+      {/* Arms gripping bench */}
+      <line x1="46" y1="30" x2="52" y2="32" {...S} />
+      {/* Hips curling up */}
+      <line x1="28" y1="34" x2="22" y2="28" {...S} />
+      {/* Legs raised and curled */}
+      <line x1="22" y1="28" x2="18" y2="18" {...S} />
+      <line x1="18" y1="18" x2="20" y2="24" {...S} />
+      <line x1="22" y1="28" x2="20" y2="18" {...S} />
+      <line x1="20" y1="18" x2="22" y2="24" {...S} />
+      {/* Motion arrow */}
+      <path d="M16,26 Q12,20 16,14" fill="none" {...S} />
+      {/* Floor */}
+      <line x1="6" y1="52" x2="58" y2="52" {...E} />
+    </g>
+  )
+}
+
+export function PallofPress() {
+  return (
+    <g>
+      {/* Cable machine post */}
+      <line x1="8" y1="4" x2="8" y2="56" {...E} />
+      <rect x="4" y="24" width="8" height="4" rx="1" {...E} />
+      {/* Cable */}
+      <line x1="12" y1="26" x2="32" y2="26" style={{stroke: '#3a3a3a', strokeWidth: 1, strokeDasharray: '2 2'}} />
+      {/* Figure standing perpendicular */}
+      <circle cx="38" cy="12" r="4" {...S} />
+      <line x1="38" y1="16" x2="38" y2="40" {...S} />
+      {/* Arms pressing straight out from chest */}
+      <line x1="38" y1="24" x2="32" y2="26" {...S} />
+      <line x1="38" y1="24" x2="54" y2="24" {...S} />
+      {/* Handle at full extension */}
+      <rect x="53" y="22" width="5" height="5" rx="1" {...Ed} />
+      {/* Legs */}
+      <line x1="38" y1="40" x2="32" y2="56" {...S} />
+      <line x1="38" y1="40" x2="44" y2="56" {...S} />
+      {/* Feet */}
+      <line x1="32" y1="56" x2="28" y2="56" {...S} />
+      <line x1="44" y1="56" x2="48" y2="56" {...S} />
+    </g>
+  )
+}
+
+export function WeightedDeclineCrunches() {
+  return (
+    <g>
+      {/* Decline bench */}
+      <line x1="10" y1="22" x2="50" y2="42" {...E} />
+      {/* Bench legs */}
+      <line x1="14" y1="22" x2="14" y2="52" {...E} />
+      <line x1="48" y1="42" x2="48" y2="52" {...E} />
+      {/* Foot anchor at high end */}
+      <rect x="8" y="18" width="8" height="4" rx="1" {...E} />
+      {/* Figure crunching up on decline */}
+      <circle cx="28" cy="18" r="4" {...S} />
+      <line x1="30" y1="22" x2="38" y2="34" {...S} />
+      {/* Feet hooked under pad */}
+      <line x1="38" y1="34" x2="18" y2="24" {...S} />
+      <line x1="18" y1="24" x2="14" y2="20" {...S} />
+      {/* Arms holding weight plate on chest */}
+      <line x1="28" y1="22" x2="24" y2="26" {...S} />
+      <line x1="28" y1="22" x2="32" y2="26" {...S} />
+      {/* Weight plate */}
+      <circle cx="28" cy="28" r="3" {...Ed} />
+      {/* Floor */}
+      <line x1="6" y1="52" x2="54" y2="52" {...E} />
+    </g>
+  )
+}
+
 // Fallback illustration (generic dumbbell)
 export function FallbackIllustration() {
   return (

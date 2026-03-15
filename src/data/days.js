@@ -17,7 +17,9 @@ export const DAYS = [
       'cable-lateral-raises',
       'assisted-dips',
       'rope-tricep-pushdowns',
-      'overhead-tricep-extensions'
+      'overhead-tricep-extensions',
+      'cable-woodchops',
+      'reverse-crunches'
     ]
   },
   {
@@ -38,7 +40,9 @@ export const DAYS = [
       'face-pulls',
       'hammer-curls',
       'incline-db-curls',
-      'reverse-curls'
+      'reverse-curls',
+      'pallof-press',
+      'weighted-decline-crunches'
     ]
   },
   {

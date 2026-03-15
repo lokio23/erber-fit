@@ -153,6 +153,48 @@ export const EXERCISES = [
     ],
     formCoachId: 'overhead-tricep-extensions'
   },
+  {
+    id: 'cable-woodchops',
+    name: 'Cable Woodchops (High-to-Low)',
+    sets: 3,
+    minReps: 12,
+    maxReps: 15,
+    dayIndices: [0],
+    primaryMuscles: ['obliques'],
+    secondaryMuscles: ['abs'],
+    formTips: [
+      'Start with cable at highest setting',
+      'Rotate through torso, not arms',
+      'Keep arms extended throughout',
+      'Control the return — don\'t let cable snap back'
+    ],
+    avoidCues: [
+      'Rounding the lower back',
+      'Using momentum instead of core rotation'
+    ],
+    formCoachId: 'cable-woodchops'
+  },
+  {
+    id: 'reverse-crunches',
+    name: 'Reverse Crunches',
+    sets: 3,
+    minReps: 12,
+    maxReps: 15,
+    dayIndices: [0],
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    formTips: [
+      'Curl hips up off the bench',
+      'Focus on lower abs pulling knees toward chest',
+      'Slow controlled lowering',
+      'Keep upper back flat on bench'
+    ],
+    avoidCues: [
+      'Using hip flexors to swing legs',
+      'Letting feet drop with gravity'
+    ],
+    formCoachId: 'reverse-crunches'
+  },
 
   // ═══════════════════════════════════════
   // DAY 1 — PULL (Back / Rear Delts / Biceps)
@@ -302,6 +344,48 @@ export const EXERCISES = [
     ],
     avoidCues: [],
     formCoachId: 'reverse-curls'
+  },
+  {
+    id: 'pallof-press',
+    name: 'Pallof Press',
+    sets: 3,
+    minReps: 10,
+    maxReps: 12,
+    dayIndices: [1],
+    primaryMuscles: ['obliques', 'abs'],
+    secondaryMuscles: [],
+    formTips: [
+      'Stand perpendicular to cable machine',
+      'Press hands straight out from chest',
+      'Resist the rotation — core stays locked',
+      'Pause fully extended for 1–2 seconds'
+    ],
+    avoidCues: [
+      'Letting cable pull you into rotation',
+      'Shrugging shoulders'
+    ],
+    formCoachId: 'pallof-press'
+  },
+  {
+    id: 'weighted-decline-crunches',
+    name: 'Weighted Decline Crunches',
+    sets: 3,
+    minReps: 12,
+    maxReps: 15,
+    dayIndices: [1],
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    formTips: [
+      'Hold plate or dumbbell across chest',
+      'Curl spine up — don\'t sit up with flat back',
+      'Pause and squeeze at top',
+      'Slow 2–3 second descent'
+    ],
+    avoidCues: [
+      'Pulling on neck',
+      'Using momentum to swing up'
+    ],
+    formCoachId: 'weighted-decline-crunches'
   },
 
   // ═══════════════════════════════════════
