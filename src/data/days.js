@@ -1,7 +1,7 @@
 export const DAYS = [
   {
     index: 0,
-    name: 'Push',
+    name: 'Upper Push',
     subtitle: 'Chest / Shoulders / Triceps',
     warmups: [
       { name: '5 min incline walk', detail: '5 min' },
@@ -15,16 +15,35 @@ export const DAYS = [
       'seated-db-shoulder-press',
       'db-lateral-raises',
       'cable-lateral-raises',
-      'assisted-dips',
       'rope-tricep-pushdowns',
       'overhead-tricep-extensions',
-      'cable-woodchops',
-      'reverse-crunches'
+      'cable-woodchops'
     ]
   },
   {
     index: 1,
-    name: 'Pull',
+    name: 'Lower Posterior',
+    subtitle: 'Hamstrings / Glutes / Calves',
+    warmups: [
+      { name: '5 min incline walk', detail: '5 min' },
+      { name: 'Bodyweight glute bridges', detail: '2×15' },
+      { name: 'Hip circles', detail: '10 each direction' },
+      { name: 'Leg swings', detail: '10 each leg' }
+    ],
+    exerciseIds: [
+      'rdls',
+      'hip-thrusts',
+      'hamstring-curl',
+      'step-ups',
+      'standing-calf-raises',
+      'seated-calf-raises',
+      'hanging-leg-raises',
+      'reverse-crunches'
+    ]
+  },
+  {
+    index: 2,
+    name: 'Upper Pull',
     subtitle: 'Back / Rear Delts / Biceps',
     warmups: [
       { name: '5 min incline walk', detail: '5 min' },
@@ -40,51 +59,27 @@ export const DAYS = [
       'face-pulls',
       'hammer-curls',
       'incline-db-curls',
-      'reverse-curls',
-      'pallof-press',
-      'weighted-decline-crunches'
-    ]
-  },
-  {
-    index: 2,
-    name: 'Legs & Core',
-    subtitle: 'Glutes / Hamstrings / Core',
-    warmups: [
-      { name: '5 min incline walk', detail: '5 min' },
-      { name: 'Bodyweight glute bridges', detail: '2×15' },
-      { name: 'Hip circles', detail: '10 each direction' },
-      { name: 'Leg swings', detail: '10 each leg' }
-    ],
-    exerciseIds: [
-      'rdls',
-      'hip-thrusts',
-      'hamstring-curl',
-      'step-ups',
-      'leg-press',
-      'standing-calf-raises',
-      'hanging-leg-raises',
-      'cable-crunch'
+      'pallof-press'
     ]
   },
   {
     index: 3,
-    name: 'Shoulders & V-Taper',
-    subtitle: 'Shoulders / Lats / Abs',
+    name: 'Lower Quad',
+    subtitle: 'Quads / Glutes / Calves',
     warmups: [
       { name: '5 min incline walk', detail: '5 min' },
-      { name: 'Band pull-aparts', detail: '2×15' },
-      { name: 'Band shoulder dislocates', detail: '2×10' },
-      { name: 'Light lateral raises', detail: '1×15' }
+      { name: 'Bodyweight squats', detail: '2×10' },
+      { name: 'Hip circles', detail: '10 each direction' },
+      { name: 'Leg swings', detail: '10 each leg' }
     ],
     exerciseIds: [
-      'seated-shoulder-press-d4',
-      'db-lateral-raises-d4',
-      'cable-lateral-raises-d4',
-      'rear-delt-fly',
-      'wide-grip-lat-pulldown',
-      'straight-arm-pulldown',
-      'incline-db-press-d4',
-      'hanging-leg-raises-d4',
+      'leg-press-quad',
+      'walking-lunges',
+      'leg-extensions',
+      'hip-thrusts-d4',
+      'standing-calf-raises-d4',
+      'seated-calf-raises-d4',
+      'weighted-decline-crunches',
       'ab-wheel-rollouts'
     ]
   }

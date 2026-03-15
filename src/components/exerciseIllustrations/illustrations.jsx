@@ -789,6 +789,102 @@ export function WeightedDeclineCrunches() {
   )
 }
 
+// === NEW LOWER QUAD DAY EXERCISES ===
+
+export function WalkingLunges() {
+  return (
+    <g>
+      {/* Figure mid-lunge */}
+      <circle cx="32" cy="8" r="4" {...S} />
+      <line x1="32" y1="12" x2="32" y2="30" {...S} />
+      {/* Arms with dumbbells at sides */}
+      <line x1="32" y1="18" x2="24" y2="32" {...S} />
+      <line x1="32" y1="18" x2="40" y2="32" {...S} />
+      {/* Dumbbells */}
+      <line x1="22" y1="32" x2="26" y2="32" {...Ed} />
+      <line x1="38" y1="32" x2="42" y2="32" {...Ed} />
+      {/* Front leg bent at 90° */}
+      <line x1="32" y1="30" x2="22" y2="40" {...S} />
+      <line x1="22" y1="40" x2="22" y2="52" {...S} />
+      {/* Back leg extended behind */}
+      <line x1="32" y1="30" x2="44" y2="42" {...S} />
+      <line x1="44" y1="42" x2="48" y2="50" {...S} />
+      {/* Feet */}
+      <line x1="22" y1="52" x2="18" y2="52" {...S} />
+      <line x1="48" y1="50" x2="50" y2="48" {...S} />
+      {/* Floor */}
+      <line x1="10" y1="52" x2="54" y2="52" {...E} />
+      {/* Forward arrow */}
+      <line x1="10" y1="56" x2="20" y2="56" {...S} />
+      <line x1="17" y1="54" x2="20" y2="56" {...S} />
+      <line x1="17" y1="58" x2="20" y2="56" {...S} />
+    </g>
+  )
+}
+
+export function LegExtensions() {
+  return (
+    <g>
+      {/* Machine seat and back pad */}
+      <rect x="16" y="28" width="24" height="4" rx="1" {...E} />
+      <line x1="36" y1="28" x2="40" y2="10" {...E} />
+      <line x1="40" y1="10" x2="44" y2="10" {...E} />
+      {/* Machine base */}
+      <line x1="16" y1="32" x2="16" y2="52" {...E} />
+      <line x1="36" y1="32" x2="36" y2="52" {...E} />
+      {/* Figure seated */}
+      <circle cx="34" cy="16" r="4" {...S} />
+      <line x1="34" y1="20" x2="30" y2="30" {...S} />
+      {/* Arms holding side handles */}
+      <line x1="34" y1="22" x2="38" y2="26" {...S} />
+      <line x1="34" y1="22" x2="26" y2="26" {...S} />
+      {/* Legs extending out */}
+      <line x1="30" y1="30" x2="22" y2="32" {...S} />
+      <line x1="22" y1="32" x2="12" y2="22" {...S} />
+      {/* Ankle pad */}
+      <rect x="10" y="20" width="4" height="4" rx="1" {...Ed} />
+      {/* Pivot point */}
+      <circle cx="22" cy="36" r="2" {...Ed} />
+      {/* Lever arm */}
+      <line x1="22" y1="36" x2="12" y2="24" {...Ed} />
+      {/* Floor */}
+      <line x1="8" y1="52" x2="44" y2="52" {...E} />
+    </g>
+  )
+}
+
+export function SeatedCalfRaises() {
+  return (
+    <g>
+      {/* Figure seated on machine */}
+      <circle cx="32" cy="10" r="4" {...S} />
+      <line x1="32" y1="14" x2="32" y2="30" {...S} />
+      {/* Arms holding knee pad */}
+      <line x1="32" y1="20" x2="24" y2="26" {...S} />
+      <line x1="32" y1="20" x2="40" y2="26" {...S} />
+      {/* Knee pad across thighs */}
+      <rect x="20" y="30" width="24" height="3" rx="1" {...E} />
+      {/* Thighs bent at 90° */}
+      <line x1="32" y1="30" x2="26" y2="33" {...S} />
+      <line x1="32" y1="30" x2="38" y2="33" {...S} />
+      {/* Shins vertical */}
+      <line x1="26" y1="33" x2="26" y2="46" {...S} />
+      <line x1="38" y1="33" x2="38" y2="46" {...S} />
+      {/* Feet on toes — heels raised */}
+      <line x1="26" y1="46" x2="26" y2="48" {...S} />
+      <line x1="38" y1="46" x2="38" y2="48" {...S} />
+      {/* Platform */}
+      <rect x="18" y="48" width="28" height="3" rx="1" {...E} />
+      {/* Up arrow showing calf raise motion */}
+      <line x1="50" y1="38" x2="50" y2="28" {...S} />
+      <line x1="48" y1="32" x2="50" y2="28" {...S} />
+      <line x1="52" y1="32" x2="50" y2="28" {...S} />
+      {/* Floor */}
+      <line x1="14" y1="52" x2="50" y2="52" {...E} />
+    </g>
+  )
+}
+
 // Fallback illustration (generic dumbbell)
 export function FallbackIllustration() {
   return (
