@@ -11,10 +11,13 @@ import WarmUpBanner from '../components/workout/WarmUpBanner'
 import WorkoutCompleteModal from '../components/workout/WorkoutCompleteModal'
 import Button from '../components/common/Button'
 import Card from '../components/common/Card'
+import PRToast from '../components/workout/PRToast'
 import { DAYS } from '../data/days'
+import { EXERCISE_MAP } from '../data/exercises'
 import { getProgressionStatus, shouldIncreaseWeight, suggestedWeightIncrease } from '../utils/progressionCalc'
 import { calcSessionTotalVolume } from '../utils/volumeCalc'
 import { formatDuration } from '../utils/dateUtils'
+import { fireConfetti } from '../utils/confetti'
 
 export default function WorkoutSession() {
   const navigate = useNavigate()
@@ -28,13 +31,14 @@ export default function WorkoutSession() {
     abandonWorkout
   } = useWorkout()
   const { saveSession, getLastSessionForDay } = useWorkoutLog()
-  const { checkAndUpdatePRs } = usePersonalRecords()
+  const { checkAndUpdatePRs, checkSetPR } = usePersonalRecords()
   const restTimer = useRestTimer()
 
   const [showComplete, setShowComplete] = useState(false)
   const [completedSession, setCompletedSession] = useState(null)
   const [newPRs, setNewPRs] = useState([])
   const [elapsed, setElapsed] = useState('')
+  const [prToast, setPrToast] = useState(null)
   const exerciseRefs = useRef([])
 
   // Elapsed timer
@@ -106,11 +110,29 @@ export default function WorkoutSession() {
 
   // Auto-scroll to next exercise when all sets complete
   const handleToggleSet = useCallback((exerciseIndex, setIndex) => {
+    const exercise = workoutState.exercises[exerciseIndex]
+    if (!exercise) { toggleSetComplete(exerciseIndex, setIndex); return }
+
+    const set = exercise.sets[setIndex]
+    const isCompleting = !set.completed
+
+    // Check for PR when completing a set (not uncompleting)
+    if (isCompleting && set.weight && set.reps) {
+      const result = checkSetPR(exercise.exerciseId, Number(set.weight), Number(set.reps))
+      if (result.isWeightPR || result.is1RMPR) {
+        const exData = EXERCISE_MAP[exercise.exerciseId]
+        const name = exData?.name || exercise.exerciseName
+        const msg = result.isWeightPR
+          ? `NEW PR! ${set.weight} lbs — ${name}`
+          : `NEW EST. 1RM! — ${name}`
+        fireConfetti()
+        setPrToast(msg)
+      }
+    }
+
     toggleSetComplete(exerciseIndex, setIndex)
 
     // Check if this toggle completes all sets for this exercise
-    const exercise = workoutState.exercises[exerciseIndex]
-    if (!exercise) return
     const willBeComplete = exercise.sets.every((s, i) =>
       i === setIndex ? !s.completed : s.completed
     )
@@ -119,7 +141,7 @@ export default function WorkoutSession() {
         exerciseRefs.current[exerciseIndex + 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }, 300)
     }
-  }, [toggleSetComplete, workoutState.exercises])
+  }, [toggleSetComplete, workoutState.exercises, checkSetPR])
 
   // Not started state
   if (!workoutState.isActive) {
@@ -221,6 +243,10 @@ export default function WorkoutSession() {
       {/* Single shared RestTimer overlay */}
       {(restTimer.isRunning || restTimer.timeRemaining > 0) && (
         <RestTimer timer={restTimer} />
+      )}
+
+      {prToast && (
+        <PRToast message={prToast} onDismiss={() => setPrToast(null)} />
       )}
 
       <WorkoutCompleteModal

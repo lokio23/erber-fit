@@ -50,5 +50,15 @@ export function usePersonalRecords() {
     return newPRs
   }, [records, setRecords])
 
-  return { records, getRecord, checkAndUpdatePRs }
+  const checkSetPR = useCallback((exerciseId, weight, reps) => {
+    if (!weight || !reps) return { isWeightPR: false, is1RMPR: false }
+    const existing = records[exerciseId] || { maxWeight: 0, estimatedMax: 0 }
+    const e1rm = calcEstimated1RM(weight, reps)
+    return {
+      isWeightPR: weight > existing.maxWeight,
+      is1RMPR: e1rm > (existing.estimatedMax || 0)
+    }
+  }, [records])
+
+  return { records, getRecord, checkAndUpdatePRs, checkSetPR }
 }

@@ -8,6 +8,7 @@ import WeightChart from '../components/progress/WeightChart'
 import VolumeChart from '../components/progress/VolumeChart'
 import PersonalRecordCard from '../components/progress/PersonalRecordCard'
 import WeeklyVolumeSummary from '../components/progress/WeeklyVolumeSummary'
+import SetRecords from '../components/progress/SetRecords'
 import OverviewTab from '../components/progress/OverviewTab'
 import EmptyState from '../components/common/EmptyState'
 
@@ -62,6 +63,8 @@ export default function ProgressTracker() {
           )}
 
           <PersonalRecordCard record={record} exerciseName={exercise?.name} />
+
+          <SetRecords exerciseId={selectedExercise} log={log} />
 
           {weightData.length > 0 ? (
             <>

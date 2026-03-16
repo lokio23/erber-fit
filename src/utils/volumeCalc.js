@@ -56,3 +56,26 @@ export function getWeeklyVolumeData(workoutLog, exerciseId) {
       return { week, weekLabel: label, volume }
     })
 }
+
+// Best weight per rep count for an exercise
+export function getSetRecords(workoutLog, exerciseId) {
+  const records = {} // { reps: { weight, date } }
+
+  workoutLog.forEach(session => {
+    const entry = session.exercises.find(ex => ex.exerciseId === exerciseId)
+    if (!entry) return
+
+    entry.sets.forEach(set => {
+      if (!set.completed || !set.weight || !set.reps) return
+      const reps = Number(set.reps)
+      const weight = Number(set.weight)
+      if (!records[reps] || weight > records[reps].weight) {
+        records[reps] = { weight, date: session.date }
+      }
+    })
+  })
+
+  return Object.entries(records)
+    .map(([reps, data]) => ({ reps: Number(reps), weight: data.weight, date: data.date }))
+    .sort((a, b) => a.reps - b.reps)
+}
