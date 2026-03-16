@@ -8,11 +8,18 @@ import WeightChart from '../components/progress/WeightChart'
 import VolumeChart from '../components/progress/VolumeChart'
 import PersonalRecordCard from '../components/progress/PersonalRecordCard'
 import WeeklyVolumeSummary from '../components/progress/WeeklyVolumeSummary'
+import OverviewTab from '../components/progress/OverviewTab'
 import EmptyState from '../components/common/EmptyState'
+
+const TABS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'exercise', label: 'Exercise Detail' },
+]
 
 export default function ProgressTracker() {
   const { log } = useWorkoutLog()
   const { getRecord } = usePersonalRecords()
+  const [activeTab, setActiveTab] = useState('overview')
   const [selectedExercise, setSelectedExercise] = useState('incline-db-press')
 
   const exercise = EXERCISE_MAP[selectedExercise]
@@ -24,25 +31,47 @@ export default function ProgressTracker() {
     <div>
       <h1 className="font-header text-4xl tracking-wide text-text-primary mb-4">PROGRESS</h1>
 
-      <WeeklyVolumeSummary />
+      <div className="flex gap-2 mb-5">
+        {TABS.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              activeTab === tab.id
+                ? 'bg-accent text-black'
+                : 'bg-surface-lighter text-text-secondary'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-      <ExerciseSelector selectedId={selectedExercise} onSelect={setSelectedExercise} />
-
-      {exercise && (
-        <p className="text-sm text-text-primary font-medium mb-3">
-          {exercise.name}
-        </p>
-      )}
-
-      <PersonalRecordCard record={record} exerciseName={exercise?.name} />
-
-      {weightData.length > 0 ? (
-        <>
-          <WeightChart data={weightData} />
-          <VolumeChart data={volumeData} />
-        </>
+      {activeTab === 'overview' ? (
+        <OverviewTab />
       ) : (
-        <EmptyState message={`No data yet for ${exercise?.name || 'this exercise'}. Complete a workout to see progress!`} />
+        <>
+          <WeeklyVolumeSummary />
+
+          <ExerciseSelector selectedId={selectedExercise} onSelect={setSelectedExercise} />
+
+          {exercise && (
+            <p className="text-sm text-text-primary font-medium mb-3">
+              {exercise.name}
+            </p>
+          )}
+
+          <PersonalRecordCard record={record} exerciseName={exercise?.name} />
+
+          {weightData.length > 0 ? (
+            <>
+              <WeightChart data={weightData} />
+              <VolumeChart data={volumeData} />
+            </>
+          ) : (
+            <EmptyState message={`No data yet for ${exercise?.name || 'this exercise'}. Complete a workout to see progress!`} />
+          )}
+        </>
       )}
     </div>
   )
