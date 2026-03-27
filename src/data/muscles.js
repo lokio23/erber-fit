@@ -82,6 +82,12 @@ export const MUSCLES = [
     name: 'Abs',
     view: 'front',
     description: 'The rectus abdominis and core. A strong core supports every lift and defines the midsection of the V-taper aesthetic.'
+  },
+  {
+    id: 'obliques',
+    name: 'Obliques',
+    view: 'front',
+    description: 'The internal and external obliques. Responsible for rotational power and lateral flexion. Well-developed obliques frame the abs and sharpen the V-taper waistline.'
   }
 ]
 

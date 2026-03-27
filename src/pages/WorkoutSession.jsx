@@ -7,9 +7,11 @@ import { usePersonalRecords } from '../hooks/usePersonalRecords'
 import { useRestTimer } from '../hooks/useRestTimer'
 import ExerciseCard from '../components/workout/ExerciseCard'
 import RestTimer from '../components/workout/RestTimer'
+import WarmUpBanner from '../components/workout/WarmUpBanner'
 import WorkoutCompleteModal from '../components/workout/WorkoutCompleteModal'
 import Button from '../components/common/Button'
 import Card from '../components/common/Card'
+import { DAYS } from '../data/days'
 import { getProgressionStatus, shouldIncreaseWeight, suggestedWeightIncrease } from '../utils/progressionCalc'
 import { calcSessionTotalVolume } from '../utils/volumeCalc'
 import { formatDuration } from '../utils/dateUtils'
@@ -185,6 +187,9 @@ export default function WorkoutSession() {
           </p>
         </div>
       )}
+
+      {/* Warm-up banner */}
+      <WarmUpBanner warmups={DAYS[workoutState.dayIndex]?.warmups || []} />
 
       {/* Exercise cards */}
       <div className="space-y-4">

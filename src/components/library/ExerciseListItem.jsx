@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Badge from '../common/Badge'
+import ExerciseIllustration from '../exerciseIllustrations'
 import { DAYS } from '../../data/days'
 import { MUSCLE_MAP } from '../../data/muscles'
 
@@ -13,17 +14,20 @@ export default function ExerciseListItem({ exercise }) {
     >
       {/* Collapsed header */}
       <div className="flex items-center justify-between p-4 cursor-pointer">
-        <div className="flex-1 min-w-0">
-          <h3 className="font-header text-base tracking-wide text-text-primary truncate">
-            {exercise.name.toUpperCase()}
-          </h3>
-          <div className="flex items-center gap-2 mt-1">
-            {exercise.dayIndices.map(di => (
-              <Badge key={di} variant="neutral" label={DAYS[di]?.name} />
-            ))}
-            <span className="text-xs text-text-secondary">
-              {exercise.sets}x{exercise.minReps}{exercise.maxReps !== exercise.minReps ? `–${exercise.maxReps}` : ''}
-            </span>
+        <div className="flex items-center gap-3 flex-1 min-w-0">
+          <ExerciseIllustration exerciseId={exercise.formCoachId} size="sm" className="flex-shrink-0" />
+          <div className="min-w-0">
+            <h3 className="font-header text-base tracking-wide text-text-primary truncate">
+              {exercise.name.toUpperCase()}
+            </h3>
+            <div className="flex items-center gap-2 mt-1">
+              {exercise.dayIndices.map(di => (
+                <Badge key={di} variant="neutral" label={DAYS[di]?.name} />
+              ))}
+              <span className="text-xs text-text-secondary">
+                {exercise.sets}x{exercise.minReps}{exercise.maxReps !== exercise.minReps ? `–${exercise.maxReps}` : ''}
+              </span>
+            </div>
           </div>
         </div>
         <svg
@@ -40,6 +44,13 @@ export default function ExerciseListItem({ exercise }) {
       }`}>
         <div className="overflow-hidden">
           <div className="px-4 pb-4 space-y-3">
+            {/* Large illustration */}
+            <div className="flex justify-center py-2">
+              <div className="bg-surface-light rounded-lg p-3 border border-surface-lighter">
+                <ExerciseIllustration exerciseId={exercise.formCoachId} size="md" />
+              </div>
+            </div>
+
             {/* Muscles */}
             <div>
               <p className="text-[10px] uppercase tracking-wider text-text-secondary font-bold mb-1.5">Target Muscles</p>
